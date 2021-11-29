@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2021년 달력</title>
+ 
+<table>
+<tr>
+<td width="430" bgcolor="white">
+<p>
+<SCRIPT>
+setCal()
+
+function getTime(){
+	var now = new Date()
+	var hour = now.getHours()
+	var minute = now.getMinutes()
+	now = null
+	var ampm = ""
+	
+	if (hour >= 12){
+		hour -= 12
+		ampm = "PM"
+	}else
+		ampm = "AM"
+	
+	hour = (hour == 0) ? 12 : hour
+	
+	if (minute < 10)
+	minute = "0" + minute
+	
+	return hour + ":" + minute + " " + ampm
+}
+
+ 
+function getDays(month, year){
+	var Last_Mon = new Array(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+	var Mon2
+	
+	if (year % 4 == 0) 
+		Mon2 = true 
+	else 
+		Mon2 = false 
+	
+	Last_Mon[1] = (Mon2) ? 29 : 28 
+		
+	return Last_Mon[month]
+}
+
+
+function setCal(){
+	var now = new Date()
+	var year = now.getYear()+1900
+	var month = now.getMonth()+1
+	var date = now.getDate()
+	now = null
+	
+	var firstDayInstance = new Date(year, month, 1)
+	var firstDay = firstDayInstance.getDay()
+	firstDayInstance = null
+	
+	var days = getDays(month, year)
+	drawCal(firstDay + 1, days, date, month, year)
+}
+
+ 
+
+function drawCal(firstDay, lastDate, date, month, year){
+	var headerHeight = 50
+	var border = 1
+	var cellspacing = 2
+	var headerColor = "darkblue"
+	var headerSize = "+3"
+	var colWidth = 60
+	var dayCellHeight = 20
+	var dayColor = "black"
+	var cellHeight = 50
+	var todayColor = "red"
+	var timeColor = "purple"
+	
+	var text = ""
+	
+	text += '<CENTER>'
+	text += '<TABLE BORDER=' + border + ' CELLSPACING=' + cellspacing + '>'
+	text += '<TH COLSPAN=7 HEIGHT=' + headerHeight + '>'
+	text += '<FONT COLOR="' + headerColor + '" SIZE=' + headerSize + '>'
+	text += year + '년 ' + month + '월'
+	text += '</FONT>'
+	text += '</TH>'
+	
+	var openCol = '<TD WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>'
+	openCol += '<FONT COLOR="' + dayColor + '">'
+	var closeCol = '</FONT></TD>'
+	
+	var weekDay = new Array("일", "월", "화", "수", "목", "금", "토")
+	
+	text += '<TR ALIGN="center" VALIGN="center">'
+	//2번째 줄 일~토 반복
+	for (var dayNum = 0; dayNum < 7; ++dayNum){
+		text += openCol + weekDay[dayNum] + closeCol
+	}
+	text += '</TR>'
+	
+	var digit = 1
+	var curCell = 1
+	
+	//달력 표
+	for (var row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row){
+		text += '<TR ALIGN="center" VALIGN="top">'
+	
+		for (var col = 1; col <= 7; ++col){//시작일~말일
+			if (digit > lastDate) //digit가 달의 마지막 수행 후 31>30
+				break
+		
+			if (curCell < firstDay){
+				text += '<TD></TD>';
+				curCell++
+			}else{
+				if (digit == date){
+					text += '<TD HEIGHT=' + cellHeight + '>'
+					text += '<FONT COLOR="' + todayColor + '">'
+					text += digit
+					text += '</FONT><BR>'
+					
+					text += '<FONT COLOR="' + timeColor + '" SIZE=2>'
+					text += '<CENTER>' + getTime() + '</CENTER>'
+					text += '</FONT>'
+					text += '</TD>'
+				}else
+				text += '<TD HEIGHT=' + cellHeight + '>' + digit + '</TD>'
+			digit++
+			}
+		
+		}
+		
+		text += '</TR>'
+	}
+	
+	text += '</TABLE>'
+	text += '</CENTER>'
+	document.write(text)
+}
+
+</SCRIPT>
+</td></tr></table>
+
+</head>
+<body>
+
+</body>
+</html>
