@@ -2,9 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="author" content="tailofmoon">
+	<title>Calendar </title>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />	 		
+	
 </head>
 <body>
-
+<div id="calendar_wrap"></div>
 </body>
 </html>
+
+
+<script> 
+$(function() {
+	makeCal($("#calendar_wrap"), new Date());	
+});
+
+var nowDate = new Date();
+
+function calendarMake(target, date){
+	if(date==null || date == undefined)
+		date = new Date();
+	
+	nowDate = date;
+	
+	if($(target).length>0){
+		
+	}
+	
+}
+
+</script>

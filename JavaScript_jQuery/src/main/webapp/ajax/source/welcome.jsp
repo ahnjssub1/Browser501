@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    	String name1 = request.getParameter("fname");
-    	String name2 = request.getParameter("lname");
-    	
-    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-fname: <%=name1 %>::: lname:<%=name2 %>
+환영합니다. <%=request.getParameter("username") %><br>
+환영합니다. ${param.username }
 </body>
 </html> 
