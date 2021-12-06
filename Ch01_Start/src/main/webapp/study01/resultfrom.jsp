@@ -26,6 +26,7 @@ try{
 		String age = rs.getString("grade");
 		String money = rs.getString("subject");
 		
+		//표 아웃폼 연습해보기....
 		String strXML="";
 		
 		out.write(strXML);

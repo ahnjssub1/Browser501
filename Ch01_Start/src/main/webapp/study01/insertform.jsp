@@ -13,7 +13,7 @@
 <%
  String id = request.getParameter("id");
  String name = request.getParameter("name");
- String chk_info = request.getParameter("grade");
+ String grade = request.getParameter("grade");
  String subject = request.getParameter("subject");
 
 %>
