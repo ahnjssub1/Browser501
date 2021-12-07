@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//MVC::controller
 @WebServlet("/login/logout_mvc2")
 public class LoginServlet_mvc2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,6 +30,7 @@ public class LoginServlet_mvc2 extends HttpServlet {
 			HttpSession session = request.getSession();
 		    session.setAttribute("ids", id);
 		    session.setAttribute("pws", pw);
+		    //파라미터를 세션에 저장한 다음 아래 파일에 전달
 		 	RequestDispatcher d = request.getRequestDispatcher("../loginout/logout_mvc2.jsp");
 		    d.forward(request, response);
 		}else {

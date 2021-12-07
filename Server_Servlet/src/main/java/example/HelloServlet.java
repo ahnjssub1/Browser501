@@ -1,4 +1,4 @@
-
+package example;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,22 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-//1.annotation방식 -권장사항
-@WebServlet("/ch02_start/Start")
-public class Start extends HttpServlet {
+//p.503
+@WebServlet("/HelloServlet")
+public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		
-		String name=request.getParameter("name");
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>"+name+" 환영합니다.</body></html>");
-	
+		//결과: http://localhost:8080/Server_Servlet/HelloServlet/hello
+		//    	 안녕하세요. (hong)님
+			//http://localhost:8080/Server_Servlet/HelloServlet?name=hong
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			String name = request.getParameter("name");
+			out.println("안녕하세요. "+ name+"님!");
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
