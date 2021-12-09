@@ -7,30 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
- #result{
- 	.double{border: 2px double blue;}
- }
+ #result{ 	border: 2px double blue; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$("#ok").on("click",function(){
-		$.ajax({
-			type:"post",
-			url:"",
-			data:{
-				id:$("#id").val(),
-				pw:$("#pw").val()
-
-			},
-			dataType:"text",
-			success: function(responseData,status,xhr) {
-				$("#result").text(responseData);
-			},
-			error:function(xhr,status, error){
-				console.log(error);
-			}
-		});
+	$("#ok").click(function(){
+		var result = "아이디:: "+$("#id").val()+"<br>";
+		 result += "비밀번호:: "+$("#pw").val()+"<br>";
+		 $("#result").html(result);
 	});
 });
 </script>

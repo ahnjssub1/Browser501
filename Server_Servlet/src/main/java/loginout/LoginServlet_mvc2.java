@@ -27,7 +27,9 @@ public class LoginServlet_mvc2 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if(id.equals("admin") && pw.equals("1234")) {
+			//세션 만들기
 			HttpSession session = request.getSession();
+			//만들어지 세션에 이름과 데이터 설정하기
 		    session.setAttribute("ids", id);
 		    session.setAttribute("pws", pw);
 		    //파라미터를 세션에 저장한 다음 아래 파일에 전달
