@@ -5,10 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	table{
+		border:1px solid black;
+		margin:5px;
+		padding:5px;
+	}
+	td{
+	  border:1px solid black;
+	}
+</style>
 </head>
 <body>
 
-<form name="app" action="attributeTest1.jsp" method="post">
+<form action="attributeTest1.jsp" method="post">
 	<table border="1">
 	 <tr>
 	 	<td colspan="2">application scope에 저장할 내용</td>
