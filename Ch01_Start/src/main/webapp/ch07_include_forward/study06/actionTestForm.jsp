@@ -7,18 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-아이디<input type="text" id="id" name="id" value="id"><br>
-암호<input type="text" id="pw" name="pw"><br>
-
-<input type="checkbox" id="user" name="user" value="user">
-<label for="user">사용자</label>
-<input type="checkbox" id="manager" name="manager" value="manager">
-<label for="manager">관리자</label><br>
-
-<input type="submit" value="로그인">
-
-<jsp:forward page="actionTest.jsp?">
-	<jsp:param name="id" value="id" />
-</jsp:forward>
+<form action="actionTest_forwardTAG.jsp">
+	아이디<input type="text" id="id" name="id"><br>
+	암호<input type="text" id="pw" name="pw"><br>
+	<input type="radio" name="account" value="user">사용자
+	<input type="radio" name="account" value="manager">관리자<br>
+	<input type="submit" value="로그인">
+</form>
 </body>
 </html>
