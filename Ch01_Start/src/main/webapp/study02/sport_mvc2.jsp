@@ -12,6 +12,7 @@
 <%
 request.setCharacterEncoding("utf-8");
 response.setContentType("text/html; charset=utf-8");
+
 String[] sports = request.getParameterValues("sports");
 String sex = request.getParameter("sex");
 for(String s : sports)

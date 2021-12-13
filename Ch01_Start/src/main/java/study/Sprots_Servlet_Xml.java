@@ -26,6 +26,12 @@ public class Sprots_Servlet_Xml extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/*
+		 * //post방식 아래 두줄 필수...(헷갈리면 get, post 두 방식 모두 두줄 작성)
+		 * request.setCharacterEncoding("utf-8");
+		 * response.setContentType("text/html; charset=utf-8");
+		 */
+		
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 
@@ -36,11 +42,11 @@ public class Sprots_Servlet_Xml extends HttpServlet {
 		HttpSession sess = req.getSession();
 		sess.setAttribute("s1", sports);
 		sess.setAttribute("s2", sex);
-
+		//Servlet에서 forward
 		RequestDispatcher d = req.getRequestDispatcher("sport_mvc2.jsp?id=hong");
 		d.forward(req, resp);//목적파일 출력
 
-		//MVC model1
+		//MVC model1--실행결과가 출력되지 않음(forward)
 		PrintWriter out = resp.getWriter();
 		out.println("<html><body>");
 		for(String s : sports)
