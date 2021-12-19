@@ -11,7 +11,7 @@
   </welcome-file-list>
   
 <!--   서블릿 매핑방법2: web.xml방식 -->
-  <servlet>
+   <servlet>
     <servlet-name>ServletTest</servlet-name>
     <servlet-class>StartXML</servlet-class>
   </servlet>
@@ -19,7 +19,7 @@
     <servlet-name>ServletTest</servlet-name>
     <url-pattern>/ch02_start/Start_Xml</url-pattern>
   </servlet-mapping>
-  
+ 
    <servlet>
     <servlet-name>ServletTest2</servlet-name>
     <servlet-class>study.Sprots_Servlet_Xml</servlet-class>
@@ -74,15 +74,7 @@
   	<location>/error/errorNullPointer.jsp</location>
   </error-page> -->
   
- <jsp-config>
-   	<jsp-property-group>
-   		<url-pattern>/view/*</url-pattern>
-   		<include-prelude>/common/variable.jspf</include-prelude>
-   		<include-coda>/common/footer.jspf</include-coda>
-   	</jsp-property-group>
-   </jsp-config>
 
-  
   <servlet>
     <servlet-name>Personal</servlet-name>
     <servlet-class>member.personalInfoServlet</servlet-class>
@@ -92,5 +84,49 @@
     <url-pattern>/pinfo</url-pattern>
   </servlet-mapping> 
   
+  <servlet>
+    <servlet-name>Animal-Servlet</servlet-name>
+    <servlet-class>ch10_session.AnimalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Animal-Servlet</servlet-name>
+    <url-pattern>/ch10_session/study10/animal</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Result-Servlet</servlet-name>
+    <servlet-class>ch10_session.ResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Result-Servlet</servlet-name>
+    <url-pattern>/ch10_session/study10/result</url-pattern>
+  </servlet-mapping>
+
+
+   <context-param>
+  	<description>이름</description>
+  	<param-name>Name</param-name>
+  	<param-value>GZ</param-value>
+  </context-param>
+
+  <context-param>
+  	<description>나이</description>
+  	<param-name>AGE</param-name>
+  	<param-value>30</param-value>
+  </context-param> 
+
+  <jsp-config>
+  	<taglib>
+  		<taglib-uri>/WEB-INF/tlds/fn2.tld</taglib-uri>
+  		<taglib-location>/WEB-INF/tlds/fn2.tld</taglib-location>
+  	</taglib>
+
+   	<jsp-property-group>
+   		<url-pattern>/view/*</url-pattern>
+   		<include-prelude>/common/variable.jspf</include-prelude>
+   		<include-coda>/common/footer.jspf</include-coda>
+   	</jsp-property-group>
+   
+  </jsp-config>
 
 </web-app>

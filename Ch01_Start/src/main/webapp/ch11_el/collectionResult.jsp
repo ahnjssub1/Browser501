@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,5 +26,26 @@ ${w[2] }<br>
 		out.println(str2[i]+" ");
     out.println("<br>");
 %>
+
+Array::JSTL<hr>
+<c:forEach var="i" items="${w}">
+	${i }<br>
+</c:forEach>
+<hr>
+//2. ArrayList 출력  <br>
+${FRUITS[0]}<br>
+${FRUITS[1]}<br>
+${FRUITS[2]}<br>
+<%
+List<String> list = (List<String>)request.getAttribute("FRUITS");
+for(int i=0; i<list.size(); i++)
+	out.println(list.get(i)+" ");
+out.println("<br>");
+%>
+ArrayList:: JSTL<hr>
+<c:forEach var="i" items="${FRUITS}">
+	${i }<br>
+</c:forEach>
+
 </body>
 </html>
